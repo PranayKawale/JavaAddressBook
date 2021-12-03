@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class AddressBook extends Function {
-	 public void displayOptions() {
+	   public void displayOptions() {
 	        HashMap<String, ArrayList<Person>> addressBooks = new HashMap<String, ArrayList<Person>>();
 	        Scanner scanner = new Scanner(System.in);
 	        int option;
@@ -208,6 +208,21 @@ public class AddressBook extends Function {
 	                        searchByCity(person);
 	                        break;
 	                    }
+	                
+	                case 6: 
+	                    System.out.println("Searching by city..");
+	                    System.out.println("Name of address books you want to search information in: ");
+	                    scanner.nextLine();
+	                    String addressBookNameS1 = scanner.nextLine();
+	                    if(addressBookCheck(addressBooks, addressBookNameS1)!=1) {
+	                        System.out.println("No record(s) found.");
+	                        break;
+	                    } 
+	                    else {
+	                        List<Person> person = addressBooks.get(addressBookNameS1);
+	                        searchByCity(person);
+	                        break;
+	                    } 
 
 	                case 0:
 	                    outerFlag = 1;
